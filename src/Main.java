@@ -20,19 +20,28 @@ public class Main {
                     System.out.println("Type in the shopping item you would like to add");
                     Object add = sc.next();
                     arrayMetod.addToArray(add);
-                    shoppingList.add(add);
-                    shoppingList.sort(null);
-                    System.out.println(shoppingList.toString());
-                    break;
-                case 2:
-                    System.out.println("Type in the shopping item you would like to remove");
-                    Object remove = sc.next();
-                    arrayMetod.removeFromArray(remove);
-                    shoppingList.remove(remove);
-                    shoppingList.sort(null);
-                    System.out.println(shoppingList.toString());
-                    break;
+                    if (shoppingList.contains(add)) {
+                        System.out.println("Unable to add: " + add);
+                        System.out.println(shoppingList.toString());
+                        break;
+                    } else {
+                        shoppingList.add(add);
+                    }
+                shoppingList.sort(null);
+                System.out.println(shoppingList.toString());
+                   break;
+
+                 case 2:
+                 System.out.println("Type in the shopping item you would like to remove");
+                Object remove = sc.next();
+                arrayMetod.removeFromArray(remove);
+                shoppingList.remove(remove);
+                shoppingList.sort(null);
+                System.out.println(shoppingList.toString());
+                break;
+
             }
         }
     }
 }
+
